@@ -24,12 +24,12 @@
             aria-expanded="false"
           >
             <i class="flaticon-041-graph"></i>
-            <span class="nav-text">Charts</span>
+            <span class="nav-text">Menu</span>
           </a>
           <ul aria-expanded="false">
-            <li><a href="chart-flot.html">Flot</a></li>
-            <li><a href="chart-morris.html">Morris</a></li>
-            <li><a href="chart-chartjs.html">Chartjs</a></li>
+            <li><RouterLink to="menus">Menu Category</RouterLink></li>
+            <!-- <li><a href="chart-morris.html">Morris</a></li>
+            <li><a href="chart-chartjs.html">Chartjs</a></li> -->
           </ul>
         </li>
         
@@ -110,6 +110,8 @@
 </template>
 
 <script lang="ts" setup>
+import { RouterLink } from 'vue-router';
+
 
 </script>
 <style>
