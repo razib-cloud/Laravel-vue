@@ -19,6 +19,20 @@ const fetchMenus = () => {
       console.log(err);
     });
 };
+
+const deleteMenu= (id)=>{
+  api.delete(`/menus/${id}`)
+  .then(res=>{
+    console.log(res);
+    if (res.data.menus){
+      fetchMenus()
+    }
+  })
+  .catch(err =>{
+    console.log(err);
+  })
+  
+}
 </script>
 
 <template>
@@ -45,8 +59,11 @@ const fetchMenus = () => {
                   <th>{{ menu.id }}</th>
                   <th>{{ menu.name }}</th>
                   <th class="status">
-                    <span class="badge bg-danger-subtle text-danger text-uppercase">
-                      {{ menu.inactive === 0 ? "active" : "inactive" }}</span>
+                    <span
+                      class="badge bg-danger-subtle text-danger text-uppercase"
+                    >
+                      {{ menu.inactive === 0 ? "active" : "inactive" }}</span
+                    >
                   </th>
 
                   <th>
@@ -56,9 +73,9 @@ const fetchMenus = () => {
                       >Edit</RouterLink
                     >
 
-                    <button class="btn btn-danger" @click="deleteMenu(menu.id)">
-                      Delete
-                    </button>
+                    <a class="btn btn-danger" @click="deleteMenu(menu.id)"
+                      >Delete</a
+                    >
                   </th>
                 </tr>
               </tbody>

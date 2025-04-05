@@ -5,6 +5,7 @@ import Dashboard from '../pages/Dashboard.vue';
 import NotFound from '../pages/NotFound.vue';
 import Menus from '../pages/menus/menus.vue';
 import CreateMenu from '../pages/menus/CreateMenu.vue';
+import UpdateMenu from '../pages/menus/UpdateMenu.vue';
 
 
 
@@ -15,6 +16,7 @@ const routes = [
 
   { path:'/menus', component: Menus },
   { path:'/menus/create', component: CreateMenu },
+  { path:'/menus/edit/:id', component: UpdateMenu },
  
 
 

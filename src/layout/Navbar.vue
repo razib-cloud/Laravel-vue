@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-header">
+  <div class="nav-header" style="background-color: #2c3e50;">
     <a href="index.html" class="brand-logo">
       <svg
         class="logo-abbr"
@@ -69,7 +69,7 @@
           fill="#202020"
         />
       </svg>
-    </a>
+    </a> 
     <div class="nav-control">
       <div class="hamburger">
         <span class="line"></span><span class="line"></span
@@ -79,8 +79,10 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
 
-<style>
+</script>
+
+<style scoped>
 
 </style>

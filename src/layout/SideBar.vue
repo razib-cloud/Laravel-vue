@@ -114,7 +114,13 @@ import { RouterLink } from 'vue-router';
 
 
 </script>
-<style>
+
+
+<style scoped>
+
+.deznav {
+  background-color: #2c3e50;
+}
 
 
 
