@@ -22,13 +22,17 @@
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
-                <input
-                  v-model="formdata.status"
-                  type="text"
+                <select
+                  v-model="formdata.is_active"
                   class="form-control"
                   id="status"
-                />
+                >
+                  <option value="">Select Status</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
               </div>
+
               <div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
@@ -40,7 +44,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import axios from "axios";
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
@@ -48,12 +52,12 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const formdata = reactive({
   name: "",
-  status: "",
+  is_active: "active",
 });
 
 const formSubmit = () => {
   axios
-    .post(`http://localhost/Laravel/Restaurant-main/public/api/menus`, formdata)
+    .post(`http://localhost:8000/api/menus/`, formdata)
     .then((res) => {
       console.log(res);
 

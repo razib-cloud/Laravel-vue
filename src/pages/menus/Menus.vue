@@ -20,19 +20,19 @@ const fetchMenus = () => {
     });
 };
 
-const deleteMenu= (id)=>{
-  api.delete(`/menus/${id}`)
-  .then(res=>{
-    console.log(res);
-    if (res.data.menus){
-      fetchMenus()
-    }
-  })
-  .catch(err =>{
-    console.log(err);
-  })
-  
-}
+const deleteMenu = (id) => {
+  api
+    .delete(`/menus/${id}`)
+    .then((res) => {
+      console.log(res);
+      if (res.data.menus) {
+        fetchMenus();
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 </script>
 
 <template>
@@ -62,7 +62,7 @@ const deleteMenu= (id)=>{
                     <span
                       class="badge bg-danger-subtle text-danger text-uppercase"
                     >
-                      {{ menu.inactive === 0 ? "active" : "inactive" }}</span
+                      {{ menu.is_active === 1 ? "active" : "inactive" }}</span
                     >
                   </th>
 
