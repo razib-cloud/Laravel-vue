@@ -60,8 +60,8 @@
                                         class="form-control" aria-label="Search">
                                     <i class="ti ti-search text-dark"></i>
                                 </div>
-                            </form>
-                        </div> -->
+                            </form> -->
+                        </div>
 
                         <div class="overflow-auto app-scroll">
                             <table class="table table-bottom-border  list-table-data align-middle mb-0">
@@ -111,7 +111,7 @@
                         </div> -->
                     </div>
                     </div>
-  </div>
+  
 </template>
 
 <script setup>
