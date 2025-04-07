@@ -6,7 +6,7 @@
         <div class="card-header">
           <h5>Update Menus</h5>
         </div>
-        {{ formData }}
+        <!-- {{ formData }} -->
         <div class="card-body">
           <form @submit.prevent="submitData">
             <div class="app-form">
@@ -43,10 +43,11 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script  setup>
+
 import { onMounted, reactive } from "vue";
 import { useRoute } from "vue-router";
-
+import api from '../../Api';
 const { id } = useRoute().params;
 
 onMounted(() => {
@@ -60,7 +61,7 @@ const fetechMenus = () => {
       console.log(result.data);
       formData.id = result.data.menus.id;
       formData.name = result.data.menus.name;
-      formData.status = result.data.menus.is_active;
+      formData.is_active = result.data.menus.is_active;
     })
     .catch((err) => {
       console.log(err);

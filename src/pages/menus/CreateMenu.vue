@@ -57,7 +57,7 @@ const formdata = reactive({
 
 const formSubmit = () => {
   axios
-    .post(`http://localhost:8000/api/menus/`, formdata)
+    .post("http://127.0.0.1:8000/api/menus", formdata)
     .then((res) => {
       console.log(res);
 

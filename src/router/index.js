@@ -17,6 +17,11 @@ const routes = [
   { path:'/menus', component: Menus },
   { path:'/menus/create', component: CreateMenu },
   { path:'/menus/edit/:id', component: UpdateMenu },
+
+
+  // { path:'/roles', component: roles },
+
+
  
 
 
