@@ -28,8 +28,8 @@
           </a>
           <ul aria-expanded="false">
             <li><RouterLink to="menus">Menu Category</RouterLink></li>
-            <!-- <li><a href="chart-morris.html">Morris</a></li>
-            <li><a href="chart-chartjs.html">Chartjs</a></li> -->
+            <li><RouterLink to="products">All Products</RouterLink></li>
+            <!-- <li><a href="chart-chartjs.html">Chartjs</a></li> -->
           </ul>
         </li>
         

@@ -3,9 +3,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../pages/Dashboard.vue';
 import NotFound from '../pages/NotFound.vue';
-import Menus from '../pages/menus/menus.vue';
 import CreateMenu from '../pages/menus/CreateMenu.vue';
 import UpdateMenu from '../pages/menus/UpdateMenu.vue';
+import Menus from '../pages/menus/menus.vue';
 
 
 
@@ -19,7 +19,8 @@ const routes = [
   { path:'/menus/edit/:id', component: UpdateMenu },
 
 
-  // { path:'/roles', component: roles },
+  // { path:'/products', component: ManageProducts },
+  // { path:'/products/create', component: CreateProduct},
 
 
  
