@@ -9,6 +9,7 @@ import Menus from '../pages/menus/Menus.vue';
 import ManageProducts from '../pages/products/ManageProducts.vue';
 
 import CreateProduct from '../pages/products/CreateProduct.vue';
+import UpdateProduct from '../pages/products/UpdateProduct.vue';
 
 
 
@@ -26,6 +27,7 @@ const routes = [
 
   { path:'/products', component: ManageProducts },
   { path:'/products/create', component: CreateProduct},
+  { path:'/products/edit/:id', component: UpdateProduct},
 
 
  

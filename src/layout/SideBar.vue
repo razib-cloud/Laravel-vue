@@ -29,7 +29,6 @@
           <ul aria-expanded="false">
             <li><RouterLink to="menus">Menu Category</RouterLink></li>
             <li><RouterLink to="products">All Products</RouterLink></li>
-            <!-- <li><a href="chart-chartjs.html">Chartjs</a></li> -->
           </ul>
         </li>
         
@@ -44,14 +43,14 @@
             aria-expanded="false"
           >
             <i class="flaticon-072-printer"></i>
-            <span class="nav-text">Forms</span>
+            <span class="nav-text">Order</span>
           </a>
           <ul aria-expanded="false">
-            <li><a href="form-element.html">Form Elements</a></li>
-            <li><a href="form-wizard.html">Wizard</a></li>
-            <li><a href="form-ckeditor.html">CkEditor</a></li>
+            <li><a href="form-element.html">All Orders</a></li>
           </ul>
         </li>
+
+
         <li>
           <a
             class="has-arrow ai-icon"
@@ -59,13 +58,32 @@
             aria-expanded="false"
           >
             <i class="flaticon-043-menu"></i>
-            <span class="nav-text">Table</span>
+            <span class="nav-text">Customer</span>
           </a>
           <ul aria-expanded="false">
-            <li><a href="table-bootstrap-basic.html">Bootstrap</a></li>
-            <li><a href="table-datatable-basic.html">Datatable</a></li>
+            <li><a href="table-bootstrap-basic.html">All Customers</a></li>
+            <li><a href="table-datatable-basic.html">Reservations</a></li>
           </ul>
         </li>
+
+        <li>
+          <a
+            class="has-arrow ai-icon"
+            href="javascript:void()"
+            aria-expanded="false"
+          >
+            <i class="flaticon-043-menu"></i>
+            <span class="nav-text">Reports</span>
+          </a>
+          <ul aria-expanded="false">
+            <li><a href="table-bootstrap-basic.html">Sales Report</a></li>
+            <li><a href="table-datatable-basic.html">Customer Report</a></li>
+          </ul>
+        </li>
+
+
+
+
         <li>
           <a
             class="has-arrow ai-icon"

@@ -1,6 +1,5 @@
 <template>
   <div class="row">
-    <!-- Basic Form Controls start -->
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
@@ -77,17 +76,44 @@
 <script setup>
 import { reactive } from "vue";
 
+
 const formdata = reactive({
   name: "",
   menus_id: "",
   price: "",
-  photo: "",
+  photo: "", 
   description: "",
 });
 
+// Handle file upload
+const handleFileUpload = (event) => {
+  formdata.photo = event.target.files[0];
+};
+
+// Form submit function
 const formSubmit = () => {
-  console.log("Form submitted:", formdata);
-  // You can send this data to an API here
+  const formData = new FormData();
+  formData.append("name", formdata.name);
+  formData.append("menu_id", formdata.menus_id); 
+  formData.append("price", formdata.price);
+  formData.append("photo", formdata.photo);
+  formData.append("description", formdata.description);
+
+ 
+
+  // Send the form data to the backend
+  api
+    .post("/products", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    })
+    .then((result) => {
+      console.log("Product created successfully:", result);
+    })
+    .catch((err) => {
+      console.log("Error creating product:", err);
+    });
 };
 </script>
 

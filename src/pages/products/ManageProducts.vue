@@ -42,26 +42,24 @@
                     <RouterLink :to="`/products/edit/${product.id}`" class="btn btn-primary me-2">
                       Edit
                     </RouterLink>
-                    <a class="btn btn-danger" @click="deleteProduct(product.id)">Remove
-                    </a>
+                    <a class="btn btn-danger" @click="deleteProduct(product.id)">Remove</a>
                   </td>
                 </tr>
               </tbody>
-             </table>
-              </div>
+            </table>
+          </div>
 
-              <div class="list-pagination">
-                <ul class="pagination">
-                  <li v-for="page in products.links" :key="page.label" :class="page.active ? 'active cursor-pointer' : 'cursor-pointer'
-                    ">
-                
-                    <a class="page" @click="FetchProducts(page.url)" >{{
-                      formatPageLabel(page.label) }}</a>
-                  </li>
-                </ul>
-              </div>
+          <div class="list-pagination">
+            <ul class="pagination">
+              <li v-for="page in products.links" :key="page.label"
+                  :class="page.active ? 'active cursor-pointer' : 'cursor-pointer'">
+                <a class="page" @click="FetchProducts(page.url)">
+                  {{ formatPageLabel(page.label) }}
+                </a>
+              </li>
+            </ul>
+          </div>
 
-            
         </div>
       </div>
     </div>
@@ -71,7 +69,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { RouterLink } from "vue-router";
-
+import axios from "axios";
 import api from "../../Api";
 
 const products = ref([]);
@@ -79,24 +77,23 @@ const search = ref("");
 const imgUrl = import.meta.env.VITE_IMG_BASE_URL;
 
 const FetchProducts = (url = "/products") => {
-  if (typeof url !== "string") {
-    console.log(url);
+  if (typeof url !== "string" || url === null) {
     url = "/products";
   }
 
-  api
-    .get("/products", { params: { search: search.value } })
+  const client = url.startsWith("http") ? axios : api;
+
+  client
+    .get(url, {
+      params: { search: search.value },
+    })
     .then((result) => {
-      console.log(result.data.data);
       products.value = result.data;
     })
     .catch((err) => {
       console.log(err);
     });
 };
-
-
-
 
 const formatPageLabel = (label) => {
   if (label === "&laquo; Previous") return "Previous";
@@ -123,9 +120,50 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Optional styling tweaks */
 img {
   border-radius: 8px;
   object-fit: cover;
+}
+
+.list-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 8px 14px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.pagination li a:hover {
+  background-color: #e9ecef;
+}
+
+.pagination li.active a {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  cursor: default;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 </style>
