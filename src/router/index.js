@@ -5,7 +5,12 @@ import Dashboard from '../pages/Dashboard.vue';
 import NotFound from '../pages/NotFound.vue';
 import CreateMenu from '../pages/menus/CreateMenu.vue';
 import UpdateMenu from '../pages/menus/UpdateMenu.vue';
-import Menus from '../pages/menus/menus.vue';
+import Menus from '../pages/menus/Menus.vue';
+import ManageProducts from '../pages/products/ManageProducts.vue';
+
+import CreateProduct from '../pages/products/CreateProduct.vue';
+
+
 
 
 
@@ -19,8 +24,8 @@ const routes = [
   { path:'/menus/edit/:id', component: UpdateMenu },
 
 
-  // { path:'/products', component: ManageProducts },
-  // { path:'/products/create', component: CreateProduct},
+  { path:'/products', component: ManageProducts },
+  { path:'/products/create', component: CreateProduct},
 
 
  
