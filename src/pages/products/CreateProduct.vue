@@ -75,6 +75,10 @@
 
 <script setup>
 import { reactive } from "vue";
+import api from "../../Api";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 
 const formdata = reactive({
@@ -110,6 +114,7 @@ const formSubmit = () => {
     })
     .then((result) => {
       console.log("Product created successfully:", result);
+      router.push({path:'/products'})
     })
     .catch((err) => {
       console.log("Error creating product:", err);

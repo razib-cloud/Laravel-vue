@@ -35,7 +35,7 @@
                   <td>{{ product.menus_id }}</td>
                   <td>{{ product.price }}</td>
                   <td>
-                    <img width="100" :src="`${imgUrl}/${product.photo}`" alt="product image" />
+                    <img width="80" :src="`${imgUrl}/${product.photo}`" alt="product image" />
                   </td>
                   <td>{{ product.description }}</td>
                   <td>
@@ -87,7 +87,9 @@ const FetchProducts = (url = "/products") => {
     .get(url, {
       params: { search: search.value },
     })
+    
     .then((result) => {
+      console.log(result.data)
       products.value = result.data;
     })
     .catch((err) => {

@@ -7,7 +7,6 @@ import CreateMenu from '../pages/menus/CreateMenu.vue';
 import UpdateMenu from '../pages/menus/UpdateMenu.vue';
 import Menus from '../pages/menus/Menus.vue';
 import ManageProducts from '../pages/products/ManageProducts.vue';
-
 import CreateProduct from '../pages/products/CreateProduct.vue';
 import UpdateProduct from '../pages/products/UpdateProduct.vue';
 
