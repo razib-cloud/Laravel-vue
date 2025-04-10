@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3>
-            <RouterLink to="products/create">Add New Products</RouterLink>
+            <RouterLink to="/products/create">Add New Products</RouterLink>
           </h3>
           <form class="app-form app-icon-form">
             <div class="position-relative">
@@ -32,18 +32,23 @@
                 <tr v-for="product in products.data" :key="product.id">
                   <td>{{ product.id }}</td>
                   <td>{{ product.name }}</td>
-                  <td>{{ product.menus_id }}</td>
+                  <td>{{ product.menu }}</td>
                   <td>{{ product.price }}</td>
                   <td>
                     <img width="80" :src="`${imgUrl}/${product.photo}`" alt="product image" />
                   </td>
                   <td>{{ product.description }}</td>
                   <td>
-                    <RouterLink :to="`/products/edit/${product.id}`" class="btn btn-primary me-2">
-                      Edit
-                    </RouterLink>
-                    <a class="btn btn-danger" @click="deleteProduct(product.id)">Remove</a>
-                  </td>
+  <div class="btn-group" role="group">
+    <RouterLink :to="`/products/edit/${product.id}`" class="btn btn-primary">
+      Edit
+    </RouterLink>
+    <button class="btn btn-danger" @click="deleteProduct(product.id)">
+      Remove
+    </button>
+  </div>
+</td>
+
                 </tr>
               </tbody>
             </table>

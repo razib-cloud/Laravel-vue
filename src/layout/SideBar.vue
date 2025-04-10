@@ -16,7 +16,7 @@
             <li><a href="index-2.html">Dashboard Dark</a></li>
           </ul>
         </li>
-        
+
         <li>
           <a
             class="has-arrow ai-icon"
@@ -31,11 +31,7 @@
             <li><RouterLink to="products">All Products</RouterLink></li>
           </ul>
         </li>
-        
-       
-       
-         
-      
+
         <li>
           <a
             class="has-arrow ai-icon"
@@ -49,7 +45,6 @@
             <li><a href="form-element.html">All Orders</a></li>
           </ul>
         </li>
-
 
         <li>
           <a
@@ -80,9 +75,6 @@
             <li><a href="table-datatable-basic.html">Customer Report</a></li>
           </ul>
         </li>
-
-
-
 
         <li>
           <a
@@ -128,19 +120,11 @@
 </template>
 
 <script lang="ts" setup>
-import { RouterLink } from 'vue-router';
-
-
+import { RouterLink } from "vue-router";
 </script>
 
-
 <style scoped>
-
 .deznav {
   background-color: #2c3e50;
 }
-
-
-
 </style>
-
