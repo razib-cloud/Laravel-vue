@@ -21,12 +21,16 @@
 
               <div class="mb-3">
                 <label for="menu_id" class="form-label">Menu Category</label>
-                <input v-model="formdata.menus_id"
-                  type="text"
+                <select
+                  v-model="formdata.menus_id"
                   class="form-control"
-                  placeholder="Enter Menu Category ID"
                   id="menu_id"
-                />
+                >
+                  <option disabled value="">Select Menu Category</option>
+                  <option v-for="menu in menus" :key="menu.id" :value="menu.id">
+                    {{ menu.name }}
+                  </option>
+                </select>
               </div>
 
               <div class="mb-3">
@@ -74,32 +78,31 @@
 
 <script setup>
 import { onMounted, reactive, ref } from "vue";
-import api from "../../Api";
 import { useRouter } from "vue-router";
+import api from "../../Api";
 
-const menus= ref([]);
-const fetchMenu=()=>{
-    api.get("/menus")
+const menus = ref([]);
+const fetchMenu = () => {
+  api
+    .get("/menus")
     .then((result) => {
       console.log(result.data);
-      menus.value= result.data.menus
-    }).catch((err) => {
-      
-    });
-}
+      menus.value = result.data.menus;
+    })
+    .catch((err) => {});
+};
 
-onMounted(()=>{
-   fetchMenu()
-})
+onMounted(() => {
+  fetchMenu();
+});
 
 const router = useRouter();
-
 
 const formdata = reactive({
   name: "",
   menus_id: "",
   price: "",
-  photo: "", 
+  photo: "",
   description: "",
 });
 
@@ -112,12 +115,10 @@ const handleFileUpload = (event) => {
 const formSubmit = () => {
   const formData = new FormData();
   formData.append("name", formdata.name);
-  formData.append("menu_id", formdata.menus_id); 
+  formData.append("menu_id", formdata.menus_id);
   formData.append("price", formdata.price);
   formData.append("photo", formdata.photo);
   formData.append("description", formdata.description);
-
- 
 
   // Send the form data to the backend
   api
@@ -128,7 +129,7 @@ const formSubmit = () => {
     })
     .then((result) => {
       console.log("Product created successfully:", result);
-      router.push({path:'/products'})
+      router.push({ path: "/products" });
     })
     .catch((err) => {
       console.log("Error creating product:", err);
