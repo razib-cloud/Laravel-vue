@@ -32,7 +32,7 @@
                 <tr v-for="product in products.data" :key="product.id">
                   <td>{{ product.id }}</td>
                   <td>{{ product.name }}</td>
-                  <td>{{ product.menu }}</td>
+                  <td>{{ product.menu.name }}</td>
                   <td>{{ product.price }}</td>
                   <td>
                     <img width="80" :src="`${imgUrl}/${product.photo}`" alt="product image" />

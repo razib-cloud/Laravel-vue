@@ -21,8 +21,7 @@
 
               <div class="mb-3">
                 <label for="menu_id" class="form-label">Menu Category</label>
-                <input
-                  v-model="formdata.menus_id"
+                <input v-model="formdata.menus_id"
                   type="text"
                   class="form-control"
                   placeholder="Enter Menu Category ID"
@@ -74,9 +73,24 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import api from "../../Api";
 import { useRouter } from "vue-router";
+
+const menus= ref([]);
+const fetchMenu=()=>{
+    api.get("/menus")
+    .then((result) => {
+      console.log(result.data);
+      menus.value= result.data.menus
+    }).catch((err) => {
+      
+    });
+}
+
+onMounted(()=>{
+   fetchMenu()
+})
 
 const router = useRouter();
 
