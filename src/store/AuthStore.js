@@ -10,6 +10,7 @@ export const useAuthStore = defineStore('auth', {
     user: null,
   }),
   actions: {
+  
 
     async login(credentials) {
       try {
