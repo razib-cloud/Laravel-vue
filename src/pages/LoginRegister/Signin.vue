@@ -1,41 +1,42 @@
 <template>
-  <div class="login-container">
-    <h1>Welcome</h1>
+  <div class="login-bg">
+    <div class="login-container">
+      <h1>Welcome</h1>
 
-    <form @submit.prevent="handleLogin">
-      <div class="input-group">
-        <label for="email">Email</label>
-        <input
-          v-model="loginObj.email"
-          type="email"
-          id="email"
-          name="email"
-          required
-        />
-      </div>
+      <form @submit.prevent="handleLogin">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            v-model="loginObj.email"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
 
-      <div class="input-group">
-        <label for="password">Password</label>
-        <input
-          v-model="loginObj.password"
-          type="password"
-          id="password"
-          name="password"
-          required
-        />
-      </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            v-model="loginObj.password"
+            type="password"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
 
-      <button type="submit">Login</button>
-    </form>
+        <button type="submit">Login</button>
+      </form>
 
-    <a href="#">Forgot Password?</a>
+      <a href="#">Forgot Password?</a>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
-import api from "../../api";
 import { useAuthStore } from "../../store/AuthStore";
 
 const auth = useAuthStore();
@@ -46,22 +47,18 @@ const loginObj = reactive({
   password: "",
 });
 
-const handleLogin = () => {
-  api
-    .post("/login", loginObj)
-    .then((result) => {
-      console.log(result.data);
-      auth.login(result.data); // Assuming this sets tokens/user info
-      router.push("/dashboard");
-    })
-    .catch((err) => {
-      console.error(err.message);
-    });
+const handleLogin = async () => {
+  try {
+    await auth.login(loginObj);
+    router.push("/dashboard");
+  } catch (error) {
+    console.log(error);
+  }
 };
 </script>
 
 <style>
-body {
+.login-bg {
   font-family: "Poppins", sans-serif;
   background-image: url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
   background-size: cover;
@@ -76,7 +73,7 @@ body {
 }
 
 /* Overlay for readability */
-body::before {
+.login-bg::before {
   content: "";
   position: absolute;
   top: 0;
