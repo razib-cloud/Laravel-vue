@@ -18,7 +18,7 @@ import { useAuthStore } from '@/store/AuthStore';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
-  { path: '/login', name: 'Login', component: Signin, meta: { public: true } },
+  { path: '/', name: 'Login', component: Signin, meta: { public: true } },
   {
     path: '/',
     component: MainLayout,
