@@ -6,7 +6,10 @@ import CreateMenu from '@/pages/menus/CreateMenu.vue';
 import Menus from '@/pages/menus/Menus.vue';
 import UpdateMenu from '@/pages/menus/UpdateMenu.vue';
 
-import ManageOrders from '@/pages/orders/ManageOrders.vue';
+
+
+
+
 
 import CreateProduct from '@/pages/products/CreateProduct.vue';
 import ManageProducts from '@/pages/products/ManageProducts.vue';
@@ -16,6 +19,11 @@ import Signin from '@/pages/LoginRegister/Signin.vue';
 import { useAuthStore } from '@/store/AuthStore';
 
 import { createRouter, createWebHistory } from 'vue-router';
+import CreateOrder from '../pages/orders/CreateOrder.vue';
+
+
+
+
 
 const routes = [
   { path: '/', name: 'Login', component: Signin, meta: { public: true } },
@@ -33,7 +41,11 @@ const routes = [
       { path: 'products/create', component: CreateProduct },
       { path: 'products/edit/:id', component: UpdateProduct },
 
-      { path: 'orders', component: ManageOrders },
+
+
+      // { path: 'orders', component: ManageOrder },
+      { path: 'orders/create', component: CreateOrder }
+
     ],
   },
   { path: '/:pathMatch(.*)*', component: NotFound },
