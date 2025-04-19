@@ -27,8 +27,8 @@
             <span class="nav-text">Menu</span>
           </a>
           <ul aria-expanded="false">
-            <li><RouterLink to="menus">Menu Category</RouterLink></li>
-            <li><RouterLink to="products">All Products</RouterLink></li>
+            <li><RouterLink to="/menus">Menu Category</RouterLink></li>
+            <li><RouterLink to="/products">All Products</RouterLink></li>
           </ul>
         </li>
 
@@ -42,7 +42,7 @@
             <span class="nav-text">Order</span>
           </a>
           <ul aria-expanded="false">
-            <li><RouterLink to="orders/create">All Orders</RouterLink></li>
+            <li><RouterLink to="/orders/create">All Orders</RouterLink></li>
           </ul>
         </li>
 

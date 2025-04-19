@@ -6,14 +6,10 @@ import CreateMenu from '@/pages/menus/CreateMenu.vue';
 import Menus from '@/pages/menus/Menus.vue';
 import UpdateMenu from '@/pages/menus/UpdateMenu.vue';
 
-
-
-
-
-
 import CreateProduct from '@/pages/products/CreateProduct.vue';
 import ManageProducts from '@/pages/products/ManageProducts.vue';
 import UpdateProduct from '@/pages/products/UpdateProduct.vue';
+
 
 import Signin from '@/pages/LoginRegister/Signin.vue';
 import { useAuthStore } from '@/store/AuthStore';
@@ -50,6 +46,11 @@ const routes = [
   },
   { path: '/:pathMatch(.*)*', component: NotFound },
 ];
+
+
+
+
+
 
 const router = createRouter({
   history: createWebHistory(),
